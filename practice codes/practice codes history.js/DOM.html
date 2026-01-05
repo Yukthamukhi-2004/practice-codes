@@ -1,0 +1,70 @@
+3/1/2025
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Work</title>
+    <style>
+      div {
+        border: solid black 2px;
+        margin-bottom: 50px;
+        margin-left: 400px;
+        width: 900px;
+      }
+      .heading {
+        text-align: center;
+      }
+      .submit {
+        width: 80px;
+        height: 50px;
+        margin-left: 350px;
+        font-size: 18px;
+      }
+      .job {
+        width: 800px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin: 100px;
+        margin-left: 35px;
+        padding: 10px;
+        flex-wrap: wrap;
+        cursor: pointer;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="heading">My Work</h1>
+    <div class="ambitions">
+      <div class="job job1">
+        <h2>K.Yukthamukhi</h2>
+        <h3>Full-stack Developer SD-1</h3>
+        <h4>8.5 lpa</h4>
+      </div>
+
+      <div class="job job2">
+        <h2>K.Yukthamukhi</h2>
+        <h3>Meteorologist</h3>
+        <h4>10 lpa</h4>
+      </div>
+    </div>
+    <div>
+      <p id="demo"></p>
+      <button class="submit">Submit</button>
+      <button class="goal">Add</button>
+    </div>
+
+    <script>
+      document.getElementById("demo").innerHTML = "the first paragraph ";
+      var x = document.querySelectorAll("div.job1");
+      x.forEach((x) => (x.style.backgroundColor = "lightgrey"));
+      var y = document.querySelectorAll("div.job2");
+      y.forEach((y) => (y.style.backgroundColor = "lightyellow"));
+      const p = document.createElement("p");
+      p.innerText = "my roadmap:B.tech->Job->Earning->Settle->Meteorologist";
+      document.querySelector(".job2").appendChild(p);
+      const z = document.getElementsByTagName("div").length;
+      console.log("No.of divs:", z);
+    </script>
+  </body>
+</html>
