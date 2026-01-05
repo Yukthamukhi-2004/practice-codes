@@ -1,61 +1,92 @@
-3/1/2025
 <!DOCTYPE html>
 <html>
   <head>
     <title>My Work</title>
     <style>
-      div {
-        border: solid black 2px;
-        margin-bottom: 50px;
-        margin-left: 400px;
-        width: 900px;
+      .content{
+        padding:20px;
+        display:grid;
+        grid-template-columns:50% 50%;
+        height:96%;
+      }
+      .left,.right{
+        border:2px solid black;
+        padding:20px;
+      }
+      @media(max-width:768px){
+        .content{
+          grid-template-columns:1fr;
+        }
+      }
+      .container{
+        display:grid;
+        grid-template-rows:80px 1fr;
+        height:98%;
+
+      }
+    
+      html {
+        font-size: 25px;
+        color:black;
       }
       .heading {
         text-align: center;
       }
-      .submit {
-        width: 80px;
-        height: 50px;
-        margin-left: 350px;
-        font-size: 18px;
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 15px;
+      }
+      .button {
+        padding: 10px;
       }
       .job {
-        width: 800px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        margin: 100px;
-        margin-left: 35px;
+        margin-bottom: 20px;
         padding: 10px;
-        flex-wrap: wrap;
         cursor: pointer;
-        user-select: none;
+
       }
     </style>
   </head>
   <body>
-    <h1 class="heading">My Work</h1>
-    <div class="ambitions">
-      <div class="job job1">
-        <h2>K.Yukthamukhi</h2>
-        <h3>Full-stack Developer SD-1</h3>
-        <h4>8.5 lpa</h4>
-      </div>
+    <div class="container">
+      <h1 class="heading">My Work</h1> 
+      <p id="date"></p>
+      <div class="content">
+      <div class="left" id="leftPanel">
+      <div class="ambitions">
+        <div class="job job1">
+          <h2 class="jobrole">Full-stack Developer SD-1</h2>
+          <h4>8.5 lpa</h4>
+        </div>
 
-      <div class="job job2">
-        <h2>K.Yukthamukhi</h2>
-        <h3>Meteorologist</h3>
-        <h4>10 lpa</h4>
+        <div class="job job2">
+          <h2 class="jobrole">Meteorologist</h2>
+          <h4>10 lpa</h4>
+        </div>
       </div>
-    </div>
-    <div>
-      <p id="demo"></p>
-      <button class="submit">Submit</button>
-      <button class="goal">Add</button>
+      <div>
+
+        <p id="demo"></p>
+        <div class="buttons">
+          <button class="button submit" >Submit</button>
+          <button class="button goal">Add Ambition</button>
+          <button class="button theme" onClick="changeTheme()">Theme</button>
+        </div>
+      </div>
+      </div>
+      
+      <div class="right" id="rightPanel">
+        <form>
+
+        </form>
+      </div>
+      </div>
+      </div>
     </div>
 
     <script>
-      document.getElementById("demo").innerHTML = "the first paragraph ";
       var x = document.querySelectorAll("div.job1");
       x.forEach((x) => (x.style.backgroundColor = "lightgrey"));
       var y = document.querySelectorAll("div.job2");
@@ -65,6 +96,31 @@
       document.querySelector(".job2").appendChild(p);
       const z = document.getElementsByTagName("div").length;
       console.log("No.of divs:", z);
+      document.getElementById(p).innerText=new Date().toLocalString();
+      const colors=["rgb(161, 41, 61)","Orange","Purple","Green","black"];
+      let currentColorsIndex=0;
+      function changeTheme(){
+        const jobRoles=document.querySelectorAll(".jobrole");
+        jobRoles.forEach(el=>{el.style.color=colors[currentColorsIndex]});
+        currentColorsIndex++;
+        if(currentColorsIndex >= colors.length){
+          currentColorsIndex = 0;
+        }
+      }
+      const s=document.getElementByClassName("right");
+      const r =document.createElement(p);
+      r.innerHTML("Hello World").appendChild("ul");
+
+      const ul = document.createElement("ul");
+      for(i=0;i<=3;i++){
+        const li=document.createElement("li");
+        li.innerText=`Item ${i}`;
+        ul.appendChild(li);
+      }
+      s.appendChild(p);
+      p.appendChild(ul);
+
+      
     </script>
   </body>
 </html>
