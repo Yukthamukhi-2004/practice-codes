@@ -26,7 +26,7 @@
       }
     
       html {
-        font-size: 25px;
+        font-size: 30px;
         color:black;
       }
       .heading {
@@ -52,7 +52,9 @@
   <body>
     <div class="container">
       <h1 class="heading">My Work</h1> 
-      <p id="date"></p>
+      <p id="date">
+      <button class="dropdown" onclick="showDate()"> Date </button>
+      </p>
       <div class="content">
       <div class="left" id="leftPanel">
       <div class="ambitions">
@@ -78,9 +80,12 @@
       </div>
       
       <div class="right" id="rightPanel">
-        <form>
+        <input type="button" value="hide text" onClick="document.getElementById('content2').style.visibility='Hidden'">
+        <input type="button" value="Show text" onClick="document.getElementById('content2').style.visibility='Visible'">
 
-        </form>
+        <div id="content2">
+
+        </div>
       </div>
       </div>
       </div>
@@ -91,12 +96,10 @@
       x.forEach((x) => (x.style.backgroundColor = "lightgrey"));
       var y = document.querySelectorAll("div.job2");
       y.forEach((y) => (y.style.backgroundColor = "lightyellow"));
+      /*********************************************************************************/
       const p = document.createElement("p");
       p.innerText = "my roadmap:B.tech->Job->Earning->Settle->Meteorologist";
       document.querySelector(".job2").appendChild(p);
-      const z = document.getElementsByTagName("div").length;
-      console.log("No.of divs:", z);
-      document.getElementById(p).innerText=new Date().toLocalString();
       const colors=["rgb(161, 41, 61)","Orange","Purple","Green","black"];
       let currentColorsIndex=0;
       function changeTheme(){
@@ -107,18 +110,28 @@
           currentColorsIndex = 0;
         }
       }
-      const s=document.getElementByClassName("right");
-      const r =document.createElement(p);
-      r.innerHTML("Hello World").appendChild("ul");
+      const s=document.getElementById("content2");
+      const r =document.createElement("p");
+      r.innerText="my list items:";
 
-      const ul = document.createElement("ul");
-      for(i=0;i<=3;i++){
+      const ol = document.createElement("ol");
+      const arr=["Identify","Plan","Fix Target","Work on it","Achieve"];
+      for(i=0;i<arr.length;i++){
         const li=document.createElement("li");
-        li.innerText=`Item ${i}`;
-        ul.appendChild(li);
+        li.innerText=`Item ${arr[i]}`;
+        ol.appendChild(li);
       }
-      s.appendChild(p);
-      p.appendChild(ul);
+      s.appendChild(r);
+      s.appendChild(ol);
+      //ol.lastElementChild.remove(); or
+      ol.removeChild(ol.children[1]);
+      /************************************************************************************/
+      function showDate(){
+        document.getElementById("date").innerText=new Date().toLocaleString();
+      }
+
+      
+
 
       
     </script>
