@@ -1,4 +1,4 @@
-2 / 1 / 2025;
+6 / 1 / 2025;
 function addTodoToDom(todo) {
   const container = document.getElementById("todos");
 
@@ -24,49 +24,4 @@ function removeTodoFromDom(todo) {
   if (el && el.parentNode) {
     el.parentNode.removeChild(el);
   }
-}
-
-function updateTodoInDom(oldTodo, newTodo) {
-  const el = document.getElementById(`todo-${oldTodo.id}`);
-  if (!el) return;
-
-  const titleEl = el.querySelector(".todo-title");
-  const descEl = el.querySelector(".todo-desc");
-
-  if (titleEl && oldTodo.title !== newTodo.title) {
-    titleEl.innerText = newTodo.title;
-  }
-  if (descEl && oldTodo.description !== newTodo.description) {
-    descEl.innerText = newTodo.description;
-  }
-}
-
-function updateState(oldTodos, newTodos) {
-  const oldById = new Map();
-  oldTodos.forEach((t) => oldById.set(t.id, t));
-
-  const newById = new Map();
-  newTodos.forEach((t) => newById.set(t.id, t));
-
-  // adds + updates
-  newTodos.forEach((newTodo) => {
-    const oldTodo = oldById.get(newTodo.id);
-    if (!oldTodo) {
-      addTodoToDom(newTodo);
-    } else if (
-      oldTodo.title !== newTodo.title ||
-      oldTodo.description !== newTodo.description
-    ) {
-      updateTodoInDom(oldTodo, newTodo);
-    }
-  });
-
-  // removals
-  oldTodos.forEach((oldTodo) => {
-    if (!newById.has(oldTodo.id)) {
-      removeTodoFromDom(oldTodo);
-    }
-  });
-
-  return newTodos;
 }

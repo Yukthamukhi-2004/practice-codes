@@ -50,8 +50,8 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1 class="heading">My Work</h1> 
+    <div id= "demo" class="container">
+      <h1 class="heading" id="mainhead" onmouseover="Caps()"  onmouseout="Normal()">My Work</h1> 
       <p id="date">
       <button class="dropdown" onclick="showDate()"> Date </button>
       </p>
@@ -73,7 +73,7 @@
         <p id="demo"></p>
         <div class="buttons">
           <button class="button submit" >Submit</button>
-          <button class="button goal">Add Ambition</button>
+          <button class="button goal" id="ambition">Add Ambition</button>
           <button class="button theme" onClick="changeTheme()">Theme</button>
         </div>
       </div>
@@ -82,10 +82,11 @@
       <div class="right" id="rightPanel">
         <input type="button" value="hide text" onClick="document.getElementById('content2').style.visibility='Hidden'">
         <input type="button" value="Show text" onClick="document.getElementById('content2').style.visibility='Visible'">
-
-        <div id="content2">
-
-        </div>
+        <div id="content2"></div>
+        <form>
+          <label>Ambition </label>
+          <input type="text" textholder="Ambition" value="ambition">
+        </form>
       </div>
       </div>
       </div>
@@ -113,6 +114,14 @@
       const s=document.getElementById("content2");
       const r =document.createElement("p");
       r.innerText="my list items:";
+      r.onmousedown = function(){
+        ol.style.color="grey";
+        ol.style.fontWeight="bold";
+      }
+      r.onmouseup=function(){
+        ol.style.color="black";
+        ol.style.fontWeight="normal";
+      }
 
       const ol = document.createElement("ol");
       const arr=["Identify","Plan","Fix Target","Work on it","Achieve"];
@@ -129,6 +138,19 @@
       function showDate(){
         document.getElementById("date").innerText=new Date().toLocaleString();
       }
+      function Caps(){
+        const z = document.getElementById("mainhead");
+        z.innerText = z.innerText.toUpperCase();
+      }
+      function Normal(){
+        const a = document.getElementById("mainhead");
+        a.innerText = a.innerText.toLowerCase();
+      }
+       window.addEventListener("resize",function(){
+        document.getElementById("demo").innerHTML=Math.random();
+      });
+      
+     
 
       
 
