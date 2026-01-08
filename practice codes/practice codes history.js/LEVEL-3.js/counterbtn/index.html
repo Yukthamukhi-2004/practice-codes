@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <button id="btn" onclick()="onBtnPress()">Counter 0</button>
+    <button id="btn" onclick="onBtnPress()">Counter 0</button>
   </body>
   <script>
     function onBtnPress() {
       const a = document.getElementById("btn").innerHTML;
       const c = a.split(" ")[1];
       const newCounter = parseInt(c) + 1;
-      document.getElementById("btn").innerHTML = "Counter" + newCounter;
+      document.getElementById("btn").innerHTML = "Counter " + newCounter;
     }
   </script>
 </html>
