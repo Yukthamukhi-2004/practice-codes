@@ -72,7 +72,6 @@
 
         <p id="demo"></p>
         <div class="buttons">
-          <button class="button submit" >Submit</button>
           <button class="button goal" id="ambition">Add Ambition</button>
           <button class="button theme" onClick="changeTheme()">Theme</button>
         </div>
@@ -84,8 +83,20 @@
         <input type="button" value="Show text" onClick="document.getElementById('content2').style.visibility='Visible'">
         <div id="content2"></div>
         <form>
-          <label>Ambition </label>
-          <input type="text" textholder="Ambition" value="ambition">
+          <label>First Number </label>
+          <input type="text" placeholder="FirstNumber" id="FirstNumber"></input>
+          <label>Last Number</label>
+          <input type="text" placeholder="LastNumber" id="LastNumber"></input>
+          </br>
+          <button type="button" id="sumbutton" onclick="provideSum()">Calculate sum</button>
+          </br>
+          <input type="text" placeholder="Answer" id="Answer"> </input>
+          <button type="button" id="submit" onclick="formSubmit()" >submit</button>
+          <div>
+            <p>My history:</p>
+            <ul id="history"></ul>
+          </div>
+          
         </form>
       </div>
       </div>
@@ -93,6 +104,21 @@
     </div>
 
     <script>
+       
+        function provideSum(){
+        const a=document.getElementById("FirstNumber").value;
+        const b=document.getElementById("LastNumber").value;
+        const element=document.getElementById("Answer");
+        const sum = parseInt(a) + parseInt(b);
+        element.value=sum;
+        }
+        function formSubmit(){
+          const answerValue=document.getElementById("Answer").value;
+          const li = document.createElement("li");
+          li.innerText=answerValue;
+          document.getElementById("history").appendChild(li)
+          
+        }
       var x = document.querySelectorAll("div.job1");
       x.forEach((x) => (x.style.backgroundColor = "lightgrey"));
       var y = document.querySelectorAll("div.job2");
@@ -134,6 +160,8 @@
       s.appendChild(ol);
       //ol.lastElementChild.remove(); or
       ol.removeChild(ol.children[1]);
+
+
       /************************************************************************************/
       function showDate(){
         document.getElementById("date").innerText=new Date().toLocaleString();
@@ -149,13 +177,8 @@
        window.addEventListener("resize",function(){
         document.getElementById("demo").innerHTML=Math.random();
       });
-      
-     
 
-      
-
-
-      
+   
     </script>
   </body>
 </html>

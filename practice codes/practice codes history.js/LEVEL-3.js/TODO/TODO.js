@@ -13,7 +13,6 @@ function addTodoToDom(todo) {
   const desc = document.createElement("p");
   desc.className = "todo-desc";
   desc.innerText = todo.description;
-
   container.appendChild(div);
   div.appendChild(title);
   div.appendChild(desc);
