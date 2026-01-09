@@ -6,6 +6,9 @@ function App() {
   return (
     <div>
       <AnotherButton count={count} setCount={setCount}></AnotherButton>
+      <AnotherButton count={count + 100} setCount={setCount}></AnotherButton>
+      <AnotherButton count={count - 10} setCount={setCount}></AnotherButton>
+      <AnotherButton count={count} setCount={setCount * 10}></AnotherButton>
     </div>
   );
 }
