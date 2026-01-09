@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd vite-project && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yukthamukhi-2004/practice-codes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yukthamukhi-2004/practice-codes/issues"
+  },
+  "homepage": "https://github.com/Yukthamukhi-2004/practice-codes#readme",
+  "description": ""
+}
