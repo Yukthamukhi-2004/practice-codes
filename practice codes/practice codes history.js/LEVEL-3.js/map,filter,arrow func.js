@@ -23,7 +23,7 @@ console.log(ans);
 const input = [1, 2, 3, 4, 5];
 const newArray = [];
 for (let i = 0; i < input.length; i++) {
-  newArray.push(input[i] * 2);
+  newArray.map(input[i] * 2);
 }
 console.log(newArray);
 //map function needs 2 inputs: an array, transformation callback/fn

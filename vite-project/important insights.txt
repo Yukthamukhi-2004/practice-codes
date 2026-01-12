@@ -1,0 +1,50 @@
+.files & there responsibilities:
+    App.jsx             --->    What data exist
+    components(Card.jsx)---> how it looks
+.because of props--> reuse the component  by same component,
+                                             Different Data,
+                                             Zero duplication
+    <Card name="A" description="Developer" />
+    <Card name="B" description="Designer" />
+    <Card name="C" description="Tester" />-->jsx code 
+
+.One-Way Data Flow:
+    Parent --> Child -->can read only props
+    (App)  --> (Card)    
+
+.Card() is called by React,in rendering phase when App() returns jsx containing Card().
+.props is an javaScript object,created by React which contains attributes,
+   and further passed to component.  
+.Changing details affect the UI,bcoz,when React re-runs the app,passes new props to card 
+   and re-build virtualDOM,compares vth previous one and update new one.
+.browser DOM actually changes ,when compare new Virtual DOM vth old one,
+  only apply neccessary changes to real DOM.
+
+Total Work Flow:
+ Browser loads index.html
+      ↓
+ReactDOM finds #root div
+      ↓
+React calls App()
+      ↓
+App returns JSX
+       ↓
+React sees <Card />
+       ↓
+React calls Card(props)
+      ↓
+DOM is created
+
+ Role of React:
+ 1.call component function
+ 2.Convert JSX to real HTML
+ 3.Update the DOM when data changes
+
+Q & A
+1.If App.jsx re-runs but Card.jsx code
+  does NOT change, why does Card still re-render?
+a. Because Card is a child of App, when App re-renders, 
+React re-invokes Card’s function to compute the UI again, which causes Card to re-render even if its code hasn’t changed.
+
+
+                     
