@@ -1,0 +1,27 @@
+.card {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  background-color: beige;
+  border-radius: 20px;
+  padding: 100px 100px;
+  margin-left: 750px;
+  margin-top: 250px;
+}
+
+.socials button {
+  gap: 10px;
+  cursor: pointer;
+  background-color: rgb(72, 72, 238);
+  width: 65px;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+  font: normal;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+button:hover {
+  font-size: 15px;
+}

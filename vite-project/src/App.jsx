@@ -1,28 +1,21 @@
-import Card from "./components/Card";
+import Card from "./components/Card.jsx";
 
 function App() {
   const details = {
-    name: "Yuktha",
-    description: "Software Engineer I role",
-    fav: "Interests",
-    likes: ["Ionic", "Open Source", "App Dev"],
+    name: "Yukthamukhi",
+    description: "Software Engineer 1 role",
+    fav: "Interest",
+    likes: ["Ionic", "Open Source", "Open Dev"],
   };
 
   return (
     <div>
-<<<<<<< HEAD
-      <AnotherButton count={count} setCount={setCount}></AnotherButton>
-      <AnotherButton count={count + 100} setCount={setCount}></AnotherButton>
-      <AnotherButton count={count - 10} setCount={setCount}></AnotherButton>
-      <AnotherButton count={count} setCount={setCount * 10}></AnotherButton>
-=======
       <Card
         name={details.name}
         description={details.description}
         fav={details.fav}
         likes={details.likes}
       />
->>>>>>> 859fc3c (Update practice codes and App.jsx in src)
     </div>
   );
 }
